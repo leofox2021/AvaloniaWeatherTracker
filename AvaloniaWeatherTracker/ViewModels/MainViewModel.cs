@@ -13,10 +13,13 @@ public partial class MainViewModel : ObservableObject
     private ObservableCollection<WeatherReport> _weatherReports;
 
     [ObservableProperty]
-    private string _lastFetchDate;
+    private string _status;
 
     [ObservableProperty]
     private string _textBotText;
+
+    [ObservableProperty]
+    private int _selectedIndex;
     
     public MainViewModel()
     {
@@ -25,7 +28,7 @@ public partial class MainViewModel : ObservableObject
         LoadReports = new RelayCommand(DoLoadWeatherReports, CanDoLoadWeatherReports);
         AddCity = new RelayCommand(DoAddCity, CanDoAddCity);
         
-        _lastFetchDate = "Last fetched at: never fetched!";
+        _status = "Last fetched at: never fetched!";
         _textBotText = "";
     }
    
@@ -37,10 +40,14 @@ public partial class MainViewModel : ObservableObject
     private async void DoLoadWeatherReports(object obj)
     {
         await WeatherService.GetReports(WeatherReports);
-        LastFetchDate = WeatherService.LastFetchDate;
+        Status = WeatherService.Status;
     }
     
     private bool CanDoAddCity(object obj) => true;
     
-    private async void DoAddCity(object obj) => await WeatherService.AddNewCity(TextBotText);
+    private async void DoAddCity(object obj)
+    {
+        await WeatherService.AddNewCity(TextBotText);
+        Status = WeatherService.Status;
+    }
 }

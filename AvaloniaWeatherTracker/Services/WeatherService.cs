@@ -14,7 +14,7 @@ public static class WeatherService
     private static HttpClient _httpClient = new();
     private static string ApiUrl = "http://localhost:5143/Main";
 
-    public static string LastFetchDate { get; set; } = "";
+    public static string Status { get; set; } = "";
     
     public static async Task GetReports(ObservableCollection<WeatherReport> reports)
     {
@@ -28,26 +28,35 @@ public static class WeatherService
             reports.Clear();
             reports.AddRange(JsonConvert.DeserializeObject<List<WeatherReport>>(json));
 
-            LastFetchDate = $"Last fetched at: {DateTimeFormatter.FormatToString(DateTime.Now)}";    
+            Status = $"Last fetched at: {DateTimeFormatter.FormatToString(DateTime.Now)}";    
         }
         catch (Exception)
         {
-            LastFetchDate = "Server out of reach, unable to fetch.";
+            Status = "Server out of reach.";
         }
     }
     
     public static async Task AddNewCity(string city)
     {
-        var newCityReport = new WeatherReport
+        try
         {
-            Id = new Guid(),
-            City = city,
-            DegreesCelsius = 0,
-            DegreesFahrenheit = 0,
-            WindSpeed = 0
-        };
+            var newCityReport = new WeatherReport
+            {
+                Id = new Guid(),
+                City = city,
+                DegreesCelsius = 0,
+                DegreesFahrenheit = 0,
+                WindSpeed = 0
+            };
         
-        var response = await _httpClient.PostAsJsonAsync(ApiUrl, newCityReport);
-        response.EnsureSuccessStatusCode();
+            var response = await _httpClient.PostAsJsonAsync(ApiUrl, newCityReport);
+            response.EnsureSuccessStatusCode();
+
+            Status = "New city successfully added!";
+        }
+        catch (Exception)
+        {
+            Status = "Server out of reach.";
+        }
     }
 }
