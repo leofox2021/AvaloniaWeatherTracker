@@ -1,0 +1,13 @@
+.idea
+
+AvaloniaWeatherTracker.Browser/bin
+AvaloniaWeatherTracker.Browser/obj
+
+AvaloniaWeatherTracker.Desktop/bin
+AvaloniaWeatherTracker.Desktop/obj
+
+AvaloniaWeatherTracker.iOS/bin
+AvaloniaWeatherTracker.iOS/obj
+
+AvaloniaWeatherTracker.Android/bin
+AvaloniaWeatherTracker.Android/obj
