@@ -9,6 +9,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Width="500" 
         Height="450"
-        Title="AvaloniaWeatherTracker">
+        Title="AvaloniaWeatherTracker"
+        CanResize="False">
         <views:MainView />
 </Window>

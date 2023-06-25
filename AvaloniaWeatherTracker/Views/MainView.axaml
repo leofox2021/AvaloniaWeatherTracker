@@ -13,6 +13,28 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
+                <TextBox 
+                    Width="100" 
+                    Height="35" 
+                    Margin="10, 0, 0, 0" 
+                    CornerRadius="10" 
+                    Text="{Binding TextBotText}"
+                    Background="#4f4f4f"/>
+                <Button 
+                    Width="40" 
+                    Height="35" 
+                    Margin="10, 10, 0, 10" 
+                    Background="#424242" 
+                    Command="{Binding AddCity}" 
+                    CornerRadius="10">
+                    <TextBlock 
+                        Text="+" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Bold"
+                        FontSize="20"/>
+                </Button>
                 <Button 
                     Width="120" 
                     Height="35" 
@@ -21,7 +43,7 @@
                     Command="{Binding LoadReports}" 
                     CornerRadius="10">
                     <TextBlock 
-                        Text="{Binding ButtonText}" 
+                        Text="Load weather" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Center" 
                         FontFamily="Ubuntu" 
@@ -31,10 +53,30 @@
             </StackPanel>
             <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WeatherReports}" FontFamily="Ubuntu">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
-                    <DataGridTextColumn Header="Temperature C" Binding="{Binding DegreesCelsius}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
-                    <DataGridTextColumn Header="Temperature F" Binding="{Binding DegreesFahrenheit}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
-                    <DataGridTextColumn Header="WindSpeed" Binding="{Binding WindSpeed}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
+                    <DataGridTextColumn 
+                        Header="City" 
+                        Binding="{Binding City}" 
+                        IsReadOnly="True" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Light"/>
+                    <DataGridTextColumn 
+                        Header="Temperature C" 
+                        Binding="{Binding DegreesCelsius}" 
+                        IsReadOnly="True" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Light"/>
+                    <DataGridTextColumn 
+                        Header="Temperature F" 
+                        Binding="{Binding DegreesFahrenheit}" 
+                        IsReadOnly="True" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Light"/>
+                    <DataGridTextColumn 
+                        Header="WindSpeed" 
+                        Binding="{Binding WindSpeed}" 
+                        IsReadOnly="True" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Light"/>
                 </DataGrid.Columns>
             </DataGrid>            
         </StackPanel> 
