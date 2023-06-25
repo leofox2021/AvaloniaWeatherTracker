@@ -1,11 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 using AvaloniaWeatherTracker.Commands;
 using AvaloniaWeatherTracker.Models;
 using AvaloniaWeatherTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
-using ReactiveUI;
 
 namespace AvaloniaWeatherTracker.ViewModels;
 

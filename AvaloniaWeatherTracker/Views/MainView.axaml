@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvaloniaWeatherTracker.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
              x:Class="AvaloniaWeatherTracker.Views.MainView"
              x:DataType="vm:MainViewModel"
              Background="#212121">
@@ -13,19 +13,30 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Button Width="120" Height="35" Margin="10, 10, 0, 10" Background="#424242" Command="{Binding LoadReports}">
-                    <TextBlock Text="{Binding ButtonText}"/>
+                <Button 
+                    Width="120" 
+                    Height="35" 
+                    Margin="10, 10, 0, 10" 
+                    Background="#424242" 
+                    Command="{Binding LoadReports}" 
+                    CornerRadius="10">
+                    <TextBlock 
+                        Text="{Binding ButtonText}" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Bold"/>
                 </Button>
-                <TextBlock Text="{Binding LastFetchDate}" Margin="10, 20, 0, 0"/>
+                <TextBlock Text="{Binding LastFetchDate}" Margin="10, 20, 0, 0" FontFamily="Ubuntu" FontWeight="Light"/>
             </StackPanel>
-            <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding WeatherReports}">
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WeatherReports}" FontFamily="Ubuntu">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Temperature C" Binding="{Binding DegreesCelsius}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Temperature F" Binding="{Binding DegreesFahrenheit}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="WindSpeed" Binding="{Binding WindSpeed}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
+                    <DataGridTextColumn Header="Temperature C" Binding="{Binding DegreesCelsius}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
+                    <DataGridTextColumn Header="Temperature F" Binding="{Binding DegreesFahrenheit}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
+                    <DataGridTextColumn Header="WindSpeed" Binding="{Binding WindSpeed}" IsReadOnly="True" FontFamily="Ubuntu" FontWeight="Light"/>
                 </DataGrid.Columns>
             </DataGrid>            
-        </StackPanel>
+        </StackPanel> 
     </Grid>
 </UserControl>
