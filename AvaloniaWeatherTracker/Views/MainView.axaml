@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaWeatherTracker.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaWeatherTracker.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             Background="#212121">
+    <Design.DataContext>
+        <vm:MainViewModel/>
+    </Design.DataContext>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Button Width="120" Height="35" Margin="10, 10, 0, 10" Background="#424242" Command="{Binding LoadReports}">
+                    <TextBlock Text="{Binding ButtonText}"/>
+                </Button>
+                <TextBlock Text="{Binding LastFetchDate}" Margin="10, 20, 0, 0"/>
+            </StackPanel>
+            <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding WeatherReports}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Temperature C" Binding="{Binding DegreesCelsius}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Temperature F" Binding="{Binding DegreesFahrenheit}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="WindSpeed" Binding="{Binding WindSpeed}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>            
+        </StackPanel>
+    </Grid>
+</UserControl>
