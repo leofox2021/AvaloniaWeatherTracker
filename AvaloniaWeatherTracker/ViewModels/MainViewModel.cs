@@ -59,7 +59,7 @@ public partial class MainViewModel : ObservableObject
     
     private async void DoRemoveCity(object obj)
     {
-            await WeatherService.RemoveCity(WeatherReports, SelectedIndex);
-            Status = WeatherService.Status;
-    }
+        await WeatherService.RemoveCity(WeatherReports, SelectedIndex);
+        Status = WeatherService.Status;
+}
 }

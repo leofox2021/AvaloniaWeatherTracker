@@ -84,6 +84,9 @@ public static class WeatherService
         {
             weatherReports.RemoveAt(index);
         }
-        catch (Exception) {}
+        catch (Exception)
+        {
+            // ignored
+        }
     }
 }
