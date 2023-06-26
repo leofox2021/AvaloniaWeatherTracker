@@ -9,6 +9,8 @@
 
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
+        <None Remove="Resuorces\infoicon.png" />
+        <AvaloniaResource Include="Resuorces\infoicon.png" />
     </ItemGroup>
 
     <ItemGroup>

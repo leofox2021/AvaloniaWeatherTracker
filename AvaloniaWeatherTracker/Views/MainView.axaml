@@ -11,6 +11,51 @@
         <vm:MainViewModel/>
     </Design.DataContext>
     <Grid>
+        <!-- Detailed info flyout panel -->
+        <Rectangle 
+            IsEnabled="{Binding IsShadowRectangleEnabled}" 
+            Width="550" 
+            Height="450" 
+            ZIndex="2" 
+            StrokeThickness="1" 
+            Fill="Black" 
+            Opacity="{Binding ShadowRectangleOpacity}">
+            <Rectangle.Transitions>
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.2"></DoubleTransition>
+                </Transitions>
+            </Rectangle.Transitions>
+        </Rectangle>
+        <!-- Insert this into Margin value in order to preview it for dev: "250, 0, 0, 0" -->
+        <!-- Insert this into Margin value in order for it to function properly: "{Binding FlyoutMargin}" -->
+        <FlyoutPresenter
+            ZIndex="3"
+            IsVisible="True"
+            Width="300"
+            Margin="{Binding FlyoutMargin}">
+            <FlyoutPresenter.Transitions>
+                <Transitions>
+                    <ThicknessTransition Property="Margin" Duration="0:0:0.2"></ThicknessTransition>
+                </Transitions>
+            </FlyoutPresenter.Transitions>
+            <StackPanel Orientation="Vertical">
+                <Button 
+                    Width="40" 
+                    Height="35" 
+                    Margin="0, 0, 0, 10" 
+                    Background="#666666" 
+                    Command="{Binding HideWeatherFlyout}" 
+                    CornerRadius="10">
+                    <TextBlock 
+                        Text="X" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        FontFamily="Ubuntu" 
+                        FontWeight="Bold"
+                        FontSize="20"/>
+                </Button>
+            </StackPanel>
+        </FlyoutPresenter>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
                 <TextBox 
@@ -62,7 +107,7 @@
                 <Button 
                     Width="40" 
                     Height="35" 
-                    Margin="10, 0, 0, 10" 
+                    Margin="15, 0, 0, 10" 
                     Background="#b32e42" 
                     Command="{Binding RemoveCity}" 
                     CornerRadius="10">
@@ -73,6 +118,15 @@
                         FontFamily="Ubuntu" 
                         FontWeight="Bold"
                         FontSize="20"/>
+                </Button>
+                <Button 
+                    Width="40" 
+                    Height="35" 
+                    Margin="15, 0, 0, 10" 
+                    Background="#666666" 
+                    Command="{Binding ShowWeatherFlyout}" 
+                    CornerRadius="10">
+                    <Image Source="../Resuorces/infoicon.png" Width="20" Height="20"/>
                 </Button>
             </StackPanel>
             <DataGrid 
