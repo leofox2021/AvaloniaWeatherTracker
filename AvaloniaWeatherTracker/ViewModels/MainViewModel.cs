@@ -61,5 +61,5 @@ public partial class MainViewModel : ObservableObject
     {
         await WeatherService.RemoveCity(WeatherReports, SelectedIndex);
         Status = WeatherService.Status;
-}
+    }
 }
