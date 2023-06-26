@@ -21,4 +21,20 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
         <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resuorces\cloudyy.png" />
+      <None Remove="Resuorces\snow.png" />
+      <Content Include="Resuorces\snow.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resuorces\sunny.png" />
+      <Content Include="Resuorces\sunny.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resuorces\super_cloudy.png" />
+      <Content Include="Resuorces\super_cloudy.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
 </Project>

@@ -64,7 +64,7 @@
                     Height="35" 
                     Margin="10, 0, 0, 10" 
                     Background="#b32e42" 
-                    Command="{Binding AddCity}" 
+                    Command="{Binding RemoveCity}" 
                     CornerRadius="10">
                     <TextBlock 
                         Text="-"
@@ -82,10 +82,16 @@
                 FontFamily="Ubuntu"
                 HorizontalScrollBarVisibility="Visible"
                 VerticalScrollBarVisibility="Visible"
-                CornerRadius="10"
                 Width="540"
                 Height="330">
                 <DataGrid.Columns>
+                    <!-- <DataGridTemplateColumn Header="Icon" Width="100" IsReadOnly="True"> -->
+                    <!--     <DataGridTemplateColumn.CellTemplate> -->
+                    <!--         <DataTemplate> -->
+                    <!--             <Image Source="{Binding Icon}" Width="100" Height="100"/> -->
+                    <!--         </DataTemplate> -->
+                    <!--     </DataGridTemplateColumn.CellTemplate> -->
+                    <!-- </DataGridTemplateColumn> -->
                     <DataGridTextColumn 
                         Header="City" 
                         Binding="{Binding City}" 

@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using AvaloniaWeatherTracker.Commands;
 using AvaloniaWeatherTracker.Models;
@@ -27,13 +29,15 @@ public partial class MainViewModel : ObservableObject
         
         LoadReports = new RelayCommand(DoLoadWeatherReports, CanDoLoadWeatherReports);
         AddCity = new RelayCommand(DoAddCity, CanDoAddCity);
+        RemoveCity = new RelayCommand(DoRemoveCity, CanDoRemoveCity);
         
         _status = "Last fetched at: never fetched!";
         _textBotText = "";
     }
-   
+
     public ICommand LoadReports { get; set; }
     public ICommand AddCity { get; set; }
+    public ICommand RemoveCity { get; set; }
     
     private bool CanDoLoadWeatherReports(object obj) => true;
 
@@ -49,5 +53,13 @@ public partial class MainViewModel : ObservableObject
     {
         await WeatherService.AddNewCity(TextBotText);
         Status = WeatherService.Status;
+    }
+    
+    private bool CanDoRemoveCity(object obj) => true;
+    
+    private async void DoRemoveCity(object obj)
+    {
+            await WeatherService.RemoveCity(WeatherReports, SelectedIndex);
+            Status = WeatherService.Status;
     }
 }

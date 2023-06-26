@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using AvaloniaWeatherTracker.Models;
 using DynamicData;
@@ -28,10 +30,15 @@ public static class WeatherService
             reports.Clear();
             reports.AddRange(JsonConvert.DeserializeObject<List<WeatherReport>>(json));
 
+            // foreach (var report in reports)
+            //    report.GenerateImage();
+            
             Status = $"Last fetched at: {DateTimeFormatter.FormatToString(DateTime.Now)}";    
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+            Debug.WriteLine("Error getting reports from rest API!\n");
+            Debug.WriteLine(exception.Message);
             Status = "Server out of reach.";
         }
     }
@@ -58,5 +65,25 @@ public static class WeatherService
         {
             Status = "Server out of reach.";
         }
+    }
+    
+    public static async Task RemoveCity(ObservableCollection<WeatherReport> weatherReports, int index)
+    {
+        try
+        {
+            await _httpClient.DeleteAsync(ApiUrl + $"?id={weatherReports[index].Id}");
+            Status = "City successfully deleted!.";
+        }
+        catch (Exception)
+        {
+            Status = "Server out of reach.";
+            return;
+        }
+        
+        try
+        {
+            weatherReports.RemoveAt(index);
+        }
+        catch (Exception) {}
     }
 }
