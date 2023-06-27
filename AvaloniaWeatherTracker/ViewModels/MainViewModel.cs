@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using Avalonia;
 using AvaloniaWeatherTracker.Commands;
@@ -12,9 +14,11 @@ namespace AvaloniaWeatherTracker.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty] 
+    [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]    
     private ObservableCollection<WeatherReport> _weatherReports;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]    
     private ObservableCollection<ExtendedWeatherReport> _extendedWeatherReports;
 
     [ObservableProperty] 
@@ -27,6 +31,7 @@ public partial class MainViewModel : ObservableObject
     private string _textBotText;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]    
     private int _selectedIndex;
 
     [ObservableProperty]
@@ -58,6 +63,21 @@ public partial class MainViewModel : ObservableObject
         _isShadowRectangleEnabled = false;
     }
 
+    public ExtendedWeatherReport? SelectedExtendedWeatherReport
+    {
+        get
+        {
+            try
+            {
+                return ExtendedWeatherReports[SelectedIndex];
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+    } 
+    
     public ICommand LoadReports { get; set; }
     public ICommand AddCity { get; set; }
     public ICommand RemoveCity { get; set; }

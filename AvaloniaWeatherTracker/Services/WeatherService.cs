@@ -78,10 +78,12 @@ public static class WeatherService
                 Country = "none",
                 CountryCode = "none",
                 Elevation = 0,
-                Population = 0
+                Population = 0, 
+                Timezone = "none"
             };
             var responseExtended = await _httpClient.PostAsJsonAsync(ApiUrlExtended, newCityExtendedReport);
-
+            response.EnsureSuccessStatusCode();
+            
             Status = "New city successfully added!";
         }
         catch (Exception exception)

@@ -54,6 +54,95 @@
                         FontWeight="Bold"
                         FontSize="20"/>
                 </Button>
+                <!-- Upper degree section  -->
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="-10, 0, 0, 0" HorizontalAlignment="Right" >
+                        <TextBlock Text="City:" FontFamily="Ubuntu"/>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.City}" 
+                            FontFamily="Ubuntu" 
+                            FontWeight="SemiBold" 
+                            Margin="5, 0, 0 ,0"/>
+                        <TextBlock Text=", "></TextBlock>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.Country}" 
+                            FontFamily="Ubuntu" 
+                            FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="8, 5, 0, 0"  HorizontalAlignment="Right">
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.DegreesCelsius}" 
+                            FontSize="100" 
+                            FontFamily="Ubuntu" 
+                            FontWeight="ExtraBold"/>
+                        <TextBlock Text="°" FontSize="40" Margin="0, 10, 0 ,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <!-- Lower city info section -->
+                <StackPanel Orientation="Vertical" Margin="0, 5, 0, 0">
+                    <!-- Wind speed -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="Windspeed: " FontFamily="Ubuntu" FontSize="16"/>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.WindSpeed}" 
+                            FontFamily="Ubuntu" 
+                            FontSize="16" 
+                            FontWeight="Bold"/>
+                        <TextBlock Text="m/s" FontFamily="Ubuntu" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Separator Width="100"></Separator>
+                    </StackPanel>
+                    <!-- Elevation -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="Elevation: " FontFamily="Ubuntu" FontSize="16"/>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.Elevation}" 
+                            FontFamily="Ubuntu" 
+                            FontSize="16" 
+                            FontWeight="Bold"/>
+                        <TextBlock Text="m" FontFamily="Ubuntu" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Separator Width="100"></Separator>
+                    </StackPanel>
+                    <!-- Timezone -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="Timezone: " FontFamily="Ubuntu" FontSize="16"/>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.Timezone}" 
+                            FontFamily="Ubuntu" 
+                            FontSize="16" 
+                            FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Separator Width="100"></Separator>
+                    </StackPanel>
+                    <!-- Population -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="City population: " FontFamily="Ubuntu" FontSize="16"/>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.Population}" 
+                            FontFamily="Ubuntu" 
+                            FontSize="16" 
+                            FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Separator Width="100"></Separator>
+                    </StackPanel>
+                    <!-- Country code -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="Country code: " FontFamily="Ubuntu" FontSize="16"/>
+                        <TextBlock 
+                            Text="{Binding SelectedExtendedWeatherReport.CountryCode}" 
+                            FontFamily="Ubuntu" 
+                            FontSize="16" 
+                            FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Separator Width="100"></Separator>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </FlyoutPresenter>
         <StackPanel Orientation="Vertical">
@@ -79,7 +168,13 @@
                         FontFamily="Ubuntu" 
                         FontWeight="Bold"/>
                 </Button>
-                <Border BorderThickness="1" BorderBrush="Azure" Width="240" Height="35" Margin="10, 0, 0 ,0" CornerRadius="10">
+                <Border 
+                    BorderThickness="1" 
+                    BorderBrush="Azure" 
+                    Width="240" 
+                    Height="35" 
+                    Margin="10, 0, 0 ,0" 
+                    CornerRadius="10">
                     <TextBlock 
                         Text="{Binding Status}" 
                         FontFamily="Ubuntu" 
