@@ -5,24 +5,29 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using AvaloniaWeatherTracker.Models;
 using DynamicData;
 using Newtonsoft.Json;
+using WeatherForecastRestAPI.Model;
 
 namespace AvaloniaWeatherTracker.Services;
 
 public static class WeatherService
 {
     private static HttpClient _httpClient = new();
-    private static string ApiUrl = "http://localhost:5143/Main";
+    private static string ApiUrlMain = "http://localhost:5143/Main";
+    private static string ApiUrlExtended = "http://localhost:5143/Extended";
 
     public static string Status { get; set; } = "";
     
-    public static async Task GetReports(ObservableCollection<WeatherReport> reports)
+    public static async Task GetReports(ObservableCollection<WeatherReport> reports, 
+        ObservableCollection<ExtendedWeatherReport> extendedReports)
     {
         try
         {
-            var response = await _httpClient.GetAsync(ApiUrl);
+            var response = await _httpClient.GetAsync(ApiUrlMain);
+            var extendedResponse = await _httpClient.GetAsync(ApiUrlExtended);
         
             if (!response.IsSuccessStatusCode) return;
         
@@ -32,6 +37,10 @@ public static class WeatherService
 
             // foreach (var report in reports)
             //    report.GenerateImage();
+
+            var jsonExtended = extendedResponse.Content.ReadAsStringAsync().Result;
+            extendedReports.Clear();
+            extendedReports.AddRange(JsonConvert.DeserializeObject<List<ExtendedWeatherReport>>(jsonExtended));
             
             Status = $"Last fetched at: {DateTimeFormatter.FormatToString(DateTime.Now)}";    
         }
@@ -56,26 +65,46 @@ public static class WeatherService
                 WindSpeed = 0
             };
         
-            var response = await _httpClient.PostAsJsonAsync(ApiUrl, newCityReport);
+            var response = await _httpClient.PostAsJsonAsync(ApiUrlMain, newCityReport);
             response.EnsureSuccessStatusCode();
+
+            var newCityExtendedReport = new ExtendedWeatherReport
+            {
+                Id = new Guid(),
+                City = city,
+                DegreesCelsius = 0,
+                DegreesFahrenheit = 0,
+                WindSpeed = 0,
+                Country = "none",
+                CountryCode = "none",
+                Elevation = 0,
+                Population = 0
+            };
+            var responseExtended = await _httpClient.PostAsJsonAsync(ApiUrlExtended, newCityExtendedReport);
 
             Status = "New city successfully added!";
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+            Debug.WriteLine("Error adding city by rest API!\n");
+            Debug.WriteLine(exception.Message);
             Status = "Server out of reach.";
         }
     }
     
-    public static async Task RemoveCity(ObservableCollection<WeatherReport> weatherReports, int index)
+    public static async Task RemoveCity(ObservableCollection<WeatherReport> weatherReports, 
+        ObservableCollection<ExtendedWeatherReport> extendedWeatherReports, int index)
     {
         try
         {
-            await _httpClient.DeleteAsync(ApiUrl + $"?id={weatherReports[index].Id}");
+            await _httpClient.DeleteAsync(ApiUrlMain + $"?id={weatherReports[index].Id}");
+            await _httpClient.DeleteAsync(ApiUrlMain + $"?id={extendedWeatherReports[index].Id}");
             Status = "City successfully deleted!.";
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+            Debug.WriteLine("Error deleting city by rest API!\n");
+            Debug.WriteLine(exception.Message);
             Status = "Server out of reach.";
             return;
         }
@@ -83,10 +112,12 @@ public static class WeatherService
         try
         {
             weatherReports.RemoveAt(index);
+            extendedWeatherReports.RemoveAt(index);
         }
-        catch (Exception)
+        catch (Exception exception)
         {
-            // ignored
+            Debug.WriteLine("Error deleting cities from the collections!\n");
+            Debug.WriteLine(exception.Message);
         }
     }
 }

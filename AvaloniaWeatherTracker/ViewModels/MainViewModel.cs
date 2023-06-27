@@ -5,6 +5,7 @@ using AvaloniaWeatherTracker.Commands;
 using AvaloniaWeatherTracker.Models;
 using AvaloniaWeatherTracker.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using WeatherForecastRestAPI.Model;
 
 namespace AvaloniaWeatherTracker.ViewModels;
 
@@ -12,6 +13,9 @@ public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty] 
     private ObservableCollection<WeatherReport> _weatherReports;
+
+    [ObservableProperty]
+    private ObservableCollection<ExtendedWeatherReport> _extendedWeatherReports;
 
     [ObservableProperty] 
     private Thickness _flyoutMargin; 
@@ -39,6 +43,7 @@ public partial class MainViewModel : ObservableObject
     public MainViewModel()
     {
         WeatherReports = new ObservableCollection<WeatherReport>();
+        ExtendedWeatherReports = new ObservableCollection<ExtendedWeatherReport>();
         
         LoadReports = new RelayCommand(DoLoadWeatherReports, CanDoLoadWeatherReports);
         AddCity = new RelayCommand(DoAddCity, CanDoAddCity);
@@ -63,7 +68,7 @@ public partial class MainViewModel : ObservableObject
 
     private async void DoLoadWeatherReports(object obj)
     {
-        await WeatherService.GetReports(WeatherReports);
+        await WeatherService.GetReports(WeatherReports, ExtendedWeatherReports);
         Status = WeatherService.Status;
     }
     
@@ -79,7 +84,7 @@ public partial class MainViewModel : ObservableObject
     
     private async void DoRemoveCity(object obj)
     {
-        await WeatherService.RemoveCity(WeatherReports, SelectedIndex);
+        await WeatherService.RemoveCity(WeatherReports, ExtendedWeatherReports, SelectedIndex);
         Status = WeatherService.Status;
     }
 
