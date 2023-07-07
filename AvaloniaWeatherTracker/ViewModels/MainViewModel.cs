@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using Avalonia;
 using AvaloniaWeatherTracker.Commands;
@@ -39,8 +40,8 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private bool _isShadowRectangleEnabled;
 
-    private const double FlyoutClosedMargin = 700;
-    private const double FlyoutOpenMargin = 250;
+    private const double FlyoutClosedMargin = 800;
+    private const double FlyoutOpenMargin = 100;
     private const double FlyoutClosedOpacity = 0;
     private const double FlyoutOpenOpacity = 0.6;
     
@@ -70,7 +71,7 @@ public partial class MainViewModel : ObservableObject
             {
                 return ExtendedWeatherReports[SelectedIndex];
             }
-            catch (Exception)
+            catch (Exception exception)
             {
                 return null;
             }

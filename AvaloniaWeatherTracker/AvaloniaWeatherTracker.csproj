@@ -10,6 +10,31 @@
         <AvaloniaResource Include="Assets\**" />
         <None Remove="Resuorces\infoicon.png" />
         <AvaloniaResource Include="Resuorces\infoicon.png" />
+        <None Remove="Resuorces\cloudy.png" />
+        <AvaloniaResource Include="Resuorces\cloudy.png" />
+        <None Remove="Resuorces\country code.png" />
+        <None Remove="Resuorces\elevation.png" />
+        <AvaloniaResource Include="Resuorces\elevation.png" />
+        <None Remove="Resuorces\population.png" />
+        <AvaloniaResource Include="Resuorces\population.png" />
+        <None Remove="Resuorces\precipitation.png" />
+        <AvaloniaResource Include="Resuorces\precipitation.png" />
+        <None Remove="Resuorces\rain_sum.png" />
+        <AvaloniaResource Include="Resuorces\rain_sum.png" />
+        <None Remove="Resuorces\showers.png" />
+        <AvaloniaResource Include="Resuorces\showers.png" />
+        <None Remove="Resuorces\snowfall.png" />
+        <AvaloniaResource Include="Resuorces\snowfall.png" />
+        <None Remove="Resuorces\sunrise.png" />
+        <AvaloniaResource Include="Resuorces\sunrise.png" />
+        <None Remove="Resuorces\timezone.png" />
+        <AvaloniaResource Include="Resuorces\timezone.png" />
+        <None Remove="Resuorces\wind_direction.png" />
+        <AvaloniaResource Include="Resuorces\wind_direction.png" />
+        <None Remove="Resuorces\wind_speed.png" />
+        <AvaloniaResource Include="Resuorces\wind_speed.png" />
+        <None Remove="Resuorces\country_code.png" />
+        <AvaloniaResource Include="Resuorces\country_code.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -28,16 +53,16 @@
     <ItemGroup>
       <None Remove="Resuorces\cloudyy.png" />
       <None Remove="Resuorces\snow.png" />
-      <Content Include="Resuorces\snow.png">
+      <AvaloniaResource Include="Resuorces\snow.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+      </AvaloniaResource>
       <None Remove="Resuorces\sunny.png" />
-      <Content Include="Resuorces\sunny.png">
+      <AvaloniaResource Include="Resuorces\sunny.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+      </AvaloniaResource>
       <None Remove="Resuorces\super_cloudy.png" />
-      <Content Include="Resuorces\super_cloudy.png">
+      <AvaloniaResource Include="Resuorces\super_cloudy.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+      </AvaloniaResource>
     </ItemGroup>
 </Project>

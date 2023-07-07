@@ -79,9 +79,17 @@ public static class WeatherService
                 CountryCode = "none",
                 Elevation = 0,
                 Population = 0, 
-                Timezone = "none"
+                Timezone = "none",
+                RainSum = 0,
+                Precipitation = 0,
+                Showers = 0,
+                Snowfall = 0,
+                Sunset = "none",
+                Sunrise = "none",
+                WindDirection = 0
             };
-            var responseExtended = await _httpClient.PostAsJsonAsync(ApiUrlExtended, newCityExtendedReport);
+            
+            await _httpClient.PostAsJsonAsync(ApiUrlExtended, newCityExtendedReport);
             response.EnsureSuccessStatusCode();
             
             Status = "New city successfully added!";

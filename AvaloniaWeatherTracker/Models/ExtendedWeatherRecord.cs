@@ -5,7 +5,7 @@ namespace WeatherForecastRestAPI.Model;
 
 public class ExtendedWeatherReport
 {
-    public Image Icon { get; set; }
+    public Image? Icon { get; set; }
     public Guid Id { get; set; }
     public string? City { get; set; }
     public int DegreesCelsius { get; set; }

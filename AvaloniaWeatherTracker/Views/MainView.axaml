@@ -31,7 +31,7 @@
         <FlyoutPresenter
             ZIndex="3"
             IsVisible="True"
-            Width="300"
+            Width="500"
             Margin="{Binding FlyoutMargin}">
             <FlyoutPresenter.Transitions>
                 <Transitions>
@@ -56,7 +56,7 @@
                 </Button>
                 <!-- Upper degree section  -->
                 <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" Margin="-10, 0, 0, 0" HorizontalAlignment="Right" >
+                    <StackPanel Orientation="Horizontal" Margin="-30, 0, 0, 0" HorizontalAlignment="Right" >
                         <TextBlock Text="City:" FontFamily="Ubuntu"/>
                         <TextBlock 
                             Text="{Binding SelectedExtendedWeatherReport.City}" 
@@ -79,68 +79,152 @@
                     </StackPanel>
                 </StackPanel>
                 <!-- Lower city info section -->
-                <StackPanel Orientation="Vertical" Margin="0, 5, 0, 0">
-                    <!-- Wind speed -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock Text="Windspeed: " FontFamily="Ubuntu" FontSize="16"/>
-                        <TextBlock 
-                            Text="{Binding SelectedExtendedWeatherReport.WindSpeed}" 
-                            FontFamily="Ubuntu" 
-                            FontSize="16" 
-                            FontWeight="Bold"/>
-                        <TextBlock Text="m/s" FontFamily="Ubuntu" FontSize="16" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 0" HorizontalAlignment="Center">
+                    <!-- Left side -->
+                    <StackPanel Orientation="Vertical">
+                        <!-- Wind speed -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/wind_speed.png"/>
+                            <TextBlock Text="Wind speed: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.WindSpeed}" 
+                                FontWeight="Bold"
+                                Classes="Extended"/>
+                            <TextBlock Text="m/s" Classes="Extended" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Elevation -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/elevation.png"/>
+                            <TextBlock Text="Elevation: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Elevation}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                            <TextBlock Text="m" FontFamily="Ubuntu" FontSize="16" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Timezone -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/timezone.png"/>
+                            <TextBlock Text="Timezone: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Timezone}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Population -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/population.png"/>
+                            <TextBlock Text="City population: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Population}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Country code -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/country_code.png"/>
+                            <TextBlock Text="Country code: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.CountryCode}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Rain sum -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/rain_sum.png"/>
+                            <TextBlock Text="Rain sum: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.RainSum}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Separator Width="100"></Separator>
-                    </StackPanel>
-                    <!-- Elevation -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock Text="Elevation: " FontFamily="Ubuntu" FontSize="16"/>
-                        <TextBlock 
-                            Text="{Binding SelectedExtendedWeatherReport.Elevation}" 
-                            FontFamily="Ubuntu" 
-                            FontSize="16" 
-                            FontWeight="Bold"/>
-                        <TextBlock Text="m" FontFamily="Ubuntu" FontSize="16" FontWeight="Bold"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Separator Width="100"></Separator>
-                    </StackPanel>
-                    <!-- Timezone -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock Text="Timezone: " FontFamily="Ubuntu" FontSize="16"/>
-                        <TextBlock 
-                            Text="{Binding SelectedExtendedWeatherReport.Timezone}" 
-                            FontFamily="Ubuntu" 
-                            FontSize="16" 
-                            FontWeight="Bold"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Separator Width="100"></Separator>
-                    </StackPanel>
-                    <!-- Population -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock Text="City population: " FontFamily="Ubuntu" FontSize="16"/>
-                        <TextBlock 
-                            Text="{Binding SelectedExtendedWeatherReport.Population}" 
-                            FontFamily="Ubuntu" 
-                            FontSize="16" 
-                            FontWeight="Bold"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Separator Width="100"></Separator>
-                    </StackPanel>
-                    <!-- Country code -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock Text="Country code: " FontFamily="Ubuntu" FontSize="16"/>
-                        <TextBlock 
-                            Text="{Binding SelectedExtendedWeatherReport.CountryCode}" 
-                            FontFamily="Ubuntu" 
-                            FontSize="16" 
-                            FontWeight="Bold"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Separator Width="100"></Separator>
+                    <!-- Right side -->
+                    <StackPanel Orientation="Vertical" Margin="25, 0, 0, 0">
+                        <!-- Precipitation -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/precipitation.png"/>
+                            <TextBlock Text="Precipitation: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Precipitation}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Showers -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/showers.png"/>
+                            <TextBlock Text="Showers: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Showers}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Snowfall -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/snowfall.png"/>
+                            <TextBlock Text="Snowfall: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Snowfall}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Sunrise -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/sunrise.png"/>
+                            <TextBlock Text="Sunrise: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Sunrise}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Sunset -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/sunrise.png"/>
+                            <TextBlock Text="Sunset: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.Sunset}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Separator Classes="Extended"/>
+                        </StackPanel>
+                        <!-- Wind direction -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Classes="Extended" Source="../Resuorces/wind_direction.png"/>
+                            <TextBlock Text="Wind direction: " Classes="Extended"/>
+                            <TextBlock 
+                                Text="{Binding SelectedExtendedWeatherReport.WindDirection}" 
+                                Classes="Extended"
+                                FontWeight="Bold"/>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

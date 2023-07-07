@@ -12,5 +12,8 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+        <StyleInclude Source="Styles/ExtendedPropertyStyle.axaml"/>
+        <StyleInclude Source="Styles/ExtendedSeparatorStyle.axaml"/>
+        <StyleInclude Source="Styles/ExtendedImageStyle.axaml"/>
     </Application.Styles>
 </Application>
