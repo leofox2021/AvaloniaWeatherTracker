@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using Avalonia.Media.Imaging;
 using AvaloniaWeatherTracker.Models;
 using DynamicData;
 using Newtonsoft.Json;
@@ -26,6 +26,7 @@ public static class WeatherService
     {
         try
         {
+            List<WeatherReport> temporaryReportList = new List<WeatherReport>();
             var response = await _httpClient.GetAsync(ApiUrlMain);
             var extendedResponse = await _httpClient.GetAsync(ApiUrlExtended);
         
@@ -33,11 +34,14 @@ public static class WeatherService
         
             var json = response.Content.ReadAsStringAsync().Result;
             reports.Clear();
-            reports.AddRange(JsonConvert.DeserializeObject<List<WeatherReport>>(json));
+            temporaryReportList.AddRange(JsonConvert.DeserializeObject<List<WeatherReport>>(json));
+            
 
-            // foreach (var report in reports)
-            //    report.GenerateImage();
+            foreach (var report in temporaryReportList)
+                report.Icon = WeatherImagePicker.PickImageSource(report);
 
+            reports.AddRange(temporaryReportList);
+            
             var jsonExtended = extendedResponse.Content.ReadAsStringAsync().Result;
             extendedReports.Clear();
             extendedReports.AddRange(JsonConvert.DeserializeObject<List<ExtendedWeatherReport>>(jsonExtended));
@@ -96,8 +100,8 @@ public static class WeatherService
         }
         catch (Exception exception)
         {
-            Debug.WriteLine("Error adding city by rest API!\n");
-            Debug.WriteLine(exception.Message);
+            // Debug.WriteLine("Error adding city by rest API!\n");
+            // Debug.WriteLine(exception.Message);
             Status = "Server out of reach.";
         }
     }
@@ -113,8 +117,8 @@ public static class WeatherService
         }
         catch (Exception exception)
         {
-            Debug.WriteLine("Error deleting city by rest API!\n");
-            Debug.WriteLine(exception.Message);
+            // Debug.WriteLine("Error deleting city by rest API!\n");
+            // Debug.WriteLine(exception.Message);
             Status = "Server out of reach.";
             return;
         }
@@ -126,8 +130,8 @@ public static class WeatherService
         }
         catch (Exception exception)
         {
-            Debug.WriteLine("Error deleting cities from the collections!\n");
-            Debug.WriteLine(exception.Message);
+            // Debug.WriteLine("Error deleting cities from the collections!\n");
+            // Debug.WriteLine(exception.Message);
         }
     }
 }

@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvaloniaWeatherTracker.ViewModels"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:services="clr-namespace:AvaloniaWeatherTracker.Services"
              mc:Ignorable="d" d:DesignWidth="550" d:DesignHeight="450"
              x:Class="AvaloniaWeatherTracker.Views.MainView"
              x:DataType="vm:MainViewModel"
@@ -11,6 +11,9 @@
     <Design.DataContext>
         <vm:MainViewModel/>
     </Design.DataContext>
+    <UserControl.Resources>
+        <services:BitmapConverter x:Key="BitmapConverter"/>
+    </UserControl.Resources>
     <Grid>
         <!-- Detailed info flyout panel -->
         <Rectangle 
@@ -321,13 +324,16 @@
                 Width="540"
                 Height="330">
                 <DataGrid.Columns>
-                    <!-- <DataGridTemplateColumn Header="Icon" Width="100" IsReadOnly="True"> -->
-                    <!--     <DataGridTemplateColumn.CellTemplate> -->
-                    <!--         <DataTemplate> -->
-                    <!--             <Image Source="{Binding Icon}" Width="100" Height="100"/> -->
-                    <!--         </DataTemplate> -->
-                    <!--     </DataGridTemplateColumn.CellTemplate> -->
-                    <!-- </DataGridTemplateColumn> -->
+                    <DataGridTemplateColumn Header="Icon" Width="100" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image
+                                    Source="{Binding Icon, Converter={StaticResource BitmapConverter}}"
+                                    Width="50"
+                                    Height="50"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn 
                         Header="City" 
                         Binding="{Binding City}" 

@@ -11,7 +11,9 @@
         <None Remove="Resuorces\infoicon.png" />
         <AvaloniaResource Include="Resources\infoicon.png" />
         <None Remove="Resuorces\cloudy.png" />
-        <AvaloniaResource Include="Resources\cloudy.png" />
+        <Content Include="Resources\cloudy.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
         <None Remove="Resuorces\country code.png" />
         <None Remove="Resuorces\elevation.png" />
         <AvaloniaResource Include="Resources\elevation.png" />
@@ -53,16 +55,16 @@
     <ItemGroup>
       <None Remove="Resuorces\cloudyy.png" />
       <None Remove="Resuorces\snow.png" />
-      <AvaloniaResource Include="Resources\snow.png">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </AvaloniaResource>
+      <Content Include="Resources\snow.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <None Remove="Resuorces\sunny.png" />
-      <AvaloniaResource Include="Resources\sunny.png">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </AvaloniaResource>
+      <Content Include="Resources\sunny.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <None Remove="Resuorces\super_cloudy.png" />
-      <AvaloniaResource Include="Resources\super_cloudy.png">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </AvaloniaResource>
+      <Content Include="Resources\super_cloudy.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 </Project>
