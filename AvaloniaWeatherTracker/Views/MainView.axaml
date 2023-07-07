@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvaloniaWeatherTracker.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" d:DesignWidth="550" d:DesignHeight="450"
              x:Class="AvaloniaWeatherTracker.Views.MainView"
              x:DataType="vm:MainViewModel"
@@ -331,25 +332,29 @@
                         Binding="{Binding City}" 
                         IsReadOnly="True" 
                         FontFamily="Ubuntu" 
-                        FontWeight="Light"/>
+                        FontWeight="Light"
+                        CanUserSort="False"/>
                     <DataGridTextColumn 
                         Header="Temperature C" 
                         Binding="{Binding DegreesCelsius}" 
                         IsReadOnly="True" 
                         FontFamily="Ubuntu" 
-                        FontWeight="Light"/>
+                        FontWeight="Light"
+                        CanUserSort="False"/>
                     <DataGridTextColumn 
                         Header="Temperature F" 
                         Binding="{Binding DegreesFahrenheit}" 
                         IsReadOnly="True" 
                         FontFamily="Ubuntu" 
-                        FontWeight="Light"/>
+                        FontWeight="Light"
+                        CanUserSort="False"/>
                     <DataGridTextColumn 
                         Header="WindSpeed" 
                         Binding="{Binding WindSpeed}" 
                         IsReadOnly="True" 
                         FontFamily="Ubuntu" 
-                        FontWeight="Light"/>
+                        FontWeight="Light"
+                        CanUserSort="False"/>
                 </DataGrid.Columns>
             </DataGrid>  
         </StackPanel> 
