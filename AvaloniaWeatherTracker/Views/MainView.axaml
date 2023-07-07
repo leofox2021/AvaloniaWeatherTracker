@@ -30,12 +30,13 @@
         <!-- Insert this into Margin value in order for it to function properly: "{Binding FlyoutMargin}" -->
         <FlyoutPresenter
             ZIndex="3"
-            IsVisible="True"
+            IsEnabled="{Binding IsFlyoutEnabled}"
+            Opacity="{Binding FlyoutOpacity}"
             Width="500"
-            Margin="{Binding FlyoutMargin}">
+            Height="400">
             <FlyoutPresenter.Transitions>
                 <Transitions>
-                    <ThicknessTransition Property="Margin" Duration="0:0:0.2"></ThicknessTransition>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.1"></DoubleTransition>
                 </Transitions>
             </FlyoutPresenter.Transitions>
             <StackPanel Orientation="Vertical">

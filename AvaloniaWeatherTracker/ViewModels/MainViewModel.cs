@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Windows.Input;
-using Avalonia;
 using AvaloniaWeatherTracker.Commands;
 using AvaloniaWeatherTracker.Models;
 using AvaloniaWeatherTracker.Services;
@@ -21,9 +19,6 @@ public partial class MainViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]    
     private ObservableCollection<ExtendedWeatherReport> _extendedWeatherReports;
 
-    [ObservableProperty] 
-    private Thickness _flyoutMargin; 
-    
     [ObservableProperty]
     private string _status;
 
@@ -38,10 +33,14 @@ public partial class MainViewModel : ObservableObject
     private double _shadowRectangleOpacity;
 
     [ObservableProperty]
+    private double _flyoutOpacity;
+
+    [ObservableProperty]
     private bool _isShadowRectangleEnabled;
 
-    private const double FlyoutClosedMargin = 800;
-    private const double FlyoutOpenMargin = 100;
+    [ObservableProperty]
+    private bool _isFlyoutEnabled; 
+    
     private const double FlyoutClosedOpacity = 0;
     private const double FlyoutOpenOpacity = 0.6;
     
@@ -58,9 +57,10 @@ public partial class MainViewModel : ObservableObject
         
         _status = "Last fetched at: never fetched!";
         _textBotText = "";
-        _flyoutMargin = new Thickness(FlyoutClosedMargin, 0, 0, 0);
         _shadowRectangleOpacity = FlyoutClosedOpacity;
         _isShadowRectangleEnabled = false;
+        _isFlyoutEnabled = false;
+        _flyoutOpacity = 0;
     }
 
     public ExtendedWeatherReport? SelectedExtendedWeatherReport
@@ -113,8 +113,9 @@ public partial class MainViewModel : ObservableObject
     private void DoShowWeatherFlyout(object obj)
     {
         IsShadowRectangleEnabled = true;
+        IsFlyoutEnabled = true;
         ShadowRectangleOpacity = FlyoutOpenOpacity;
-        FlyoutMargin = new Thickness(FlyoutOpenMargin, 0, 0, 0);
+        FlyoutOpacity = 1;
     }
     
     private bool CanHideWeatherFlyout(object obj) => true;
@@ -122,7 +123,8 @@ public partial class MainViewModel : ObservableObject
     private void DoHideWeatherFlyout(object obj)
     {
         IsShadowRectangleEnabled = false;
+        IsFlyoutEnabled = false;
         ShadowRectangleOpacity = FlyoutClosedOpacity;
-        FlyoutMargin = new Thickness(FlyoutClosedMargin, 0, 0, 0);
+        FlyoutOpacity = 0;
     }
 }
