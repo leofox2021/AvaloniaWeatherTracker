@@ -13,7 +13,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.iOS" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0" />
+        <PackageReference Include="Avalonia.iOS" Version="11.0.0" />
+        <PackageReference Include="AvaloniaInside.SplashScreen" Version="1.0.1" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
         <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     </ItemGroup>
