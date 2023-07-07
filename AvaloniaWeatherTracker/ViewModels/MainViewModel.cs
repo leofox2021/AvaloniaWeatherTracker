@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using AvaloniaWeatherTracker.Commands;
 using AvaloniaWeatherTracker.Models;
@@ -69,6 +70,7 @@ public partial class MainViewModel : ObservableObject
         {
             try
             {
+                Debug.WriteLine($"Selected index is {SelectedIndex}");
                 return ExtendedWeatherReports[SelectedIndex];
             }
             catch (Exception exception)

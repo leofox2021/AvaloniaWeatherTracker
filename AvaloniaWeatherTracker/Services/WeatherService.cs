@@ -112,7 +112,7 @@ public static class WeatherService
         try
         {
             await _httpClient.DeleteAsync(ApiUrlMain + $"?id={weatherReports[index].Id}");
-            await _httpClient.DeleteAsync(ApiUrlMain + $"?id={extendedWeatherReports[index].Id}");
+            await _httpClient.DeleteAsync(ApiUrlExtended + $"?id={extendedWeatherReports[index].Id}");
             Status = "City successfully deleted!.";
         }
         catch (Exception exception)

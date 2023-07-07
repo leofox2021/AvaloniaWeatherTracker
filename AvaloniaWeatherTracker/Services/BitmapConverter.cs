@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using Avalonia.Data.Converters;
 using Avalonia.Media.Imaging;

@@ -324,7 +324,7 @@
                 Width="540"
                 Height="330">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Icon" Width="100" IsReadOnly="True">
+                    <DataGridTemplateColumn Header="Icon" Width="80" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image
