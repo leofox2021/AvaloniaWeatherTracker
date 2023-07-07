@@ -9,32 +9,32 @@
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
         <None Remove="Resuorces\infoicon.png" />
-        <AvaloniaResource Include="Resuorces\infoicon.png" />
+        <AvaloniaResource Include="Resources\infoicon.png" />
         <None Remove="Resuorces\cloudy.png" />
-        <AvaloniaResource Include="Resuorces\cloudy.png" />
+        <AvaloniaResource Include="Resources\cloudy.png" />
         <None Remove="Resuorces\country code.png" />
         <None Remove="Resuorces\elevation.png" />
-        <AvaloniaResource Include="Resuorces\elevation.png" />
+        <AvaloniaResource Include="Resources\elevation.png" />
         <None Remove="Resuorces\population.png" />
-        <AvaloniaResource Include="Resuorces\population.png" />
+        <AvaloniaResource Include="Resources\population.png" />
         <None Remove="Resuorces\precipitation.png" />
-        <AvaloniaResource Include="Resuorces\precipitation.png" />
+        <AvaloniaResource Include="Resources\precipitation.png" />
         <None Remove="Resuorces\rain_sum.png" />
-        <AvaloniaResource Include="Resuorces\rain_sum.png" />
+        <AvaloniaResource Include="Resources\rain_sum.png" />
         <None Remove="Resuorces\showers.png" />
-        <AvaloniaResource Include="Resuorces\showers.png" />
+        <AvaloniaResource Include="Resources\showers.png" />
         <None Remove="Resuorces\snowfall.png" />
-        <AvaloniaResource Include="Resuorces\snowfall.png" />
+        <AvaloniaResource Include="Resources\snowfall.png" />
         <None Remove="Resuorces\sunrise.png" />
-        <AvaloniaResource Include="Resuorces\sunrise.png" />
+        <AvaloniaResource Include="Resources\sunrise.png" />
         <None Remove="Resuorces\timezone.png" />
-        <AvaloniaResource Include="Resuorces\timezone.png" />
+        <AvaloniaResource Include="Resources\timezone.png" />
         <None Remove="Resuorces\wind_direction.png" />
-        <AvaloniaResource Include="Resuorces\wind_direction.png" />
+        <AvaloniaResource Include="Resources\wind_direction.png" />
         <None Remove="Resuorces\wind_speed.png" />
-        <AvaloniaResource Include="Resuorces\wind_speed.png" />
+        <AvaloniaResource Include="Resources\wind_speed.png" />
         <None Remove="Resuorces\country_code.png" />
-        <AvaloniaResource Include="Resuorces\country_code.png" />
+        <AvaloniaResource Include="Resources\country_code.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -53,15 +53,15 @@
     <ItemGroup>
       <None Remove="Resuorces\cloudyy.png" />
       <None Remove="Resuorces\snow.png" />
-      <AvaloniaResource Include="Resuorces\snow.png">
+      <AvaloniaResource Include="Resources\snow.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
       <None Remove="Resuorces\sunny.png" />
-      <AvaloniaResource Include="Resuorces\sunny.png">
+      <AvaloniaResource Include="Resources\sunny.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
       <None Remove="Resuorces\super_cloudy.png" />
-      <AvaloniaResource Include="Resuorces\super_cloudy.png">
+      <AvaloniaResource Include="Resources\super_cloudy.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AvaloniaResource>
     </ItemGroup>

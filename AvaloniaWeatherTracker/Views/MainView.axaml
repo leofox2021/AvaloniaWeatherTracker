@@ -34,7 +34,8 @@
             IsEnabled="{Binding IsFlyoutEnabled}"
             Opacity="{Binding FlyoutOpacity}"
             Width="500"
-            Height="400">
+            Height="400"
+            CornerRadius="10">
             <FlyoutPresenter.Transitions>
                 <Transitions>
                     <DoubleTransition Property="Opacity" Duration="0:0:0.1"></DoubleTransition>
@@ -86,7 +87,7 @@
                     <StackPanel Orientation="Vertical">
                         <!-- Wind speed -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/wind_speed.png"/>
+                            <Image Classes="Extended" Source="../Resources/wind_speed.png"/>
                             <TextBlock Text="Wind speed: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.WindSpeed}" 
@@ -99,7 +100,7 @@
                         </StackPanel>
                         <!-- Elevation -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/elevation.png"/>
+                            <Image Classes="Extended" Source="../Resources/elevation.png"/>
                             <TextBlock Text="Elevation: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Elevation}" 
@@ -112,7 +113,7 @@
                         </StackPanel>
                         <!-- Timezone -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/timezone.png"/>
+                            <Image Classes="Extended" Source="../Resources/timezone.png"/>
                             <TextBlock Text="Timezone: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Timezone}" 
@@ -124,7 +125,7 @@
                         </StackPanel>
                         <!-- Population -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/population.png"/>
+                            <Image Classes="Extended" Source="../Resources/population.png"/>
                             <TextBlock Text="City population: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Population}" 
@@ -136,7 +137,7 @@
                         </StackPanel>
                         <!-- Country code -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/country_code.png"/>
+                            <Image Classes="Extended" Source="../Resources/country_code.png"/>
                             <TextBlock Text="Country code: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.CountryCode}" 
@@ -148,7 +149,7 @@
                         </StackPanel>
                         <!-- Rain sum -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/rain_sum.png"/>
+                            <Image Classes="Extended" Source="../Resources/rain_sum.png"/>
                             <TextBlock Text="Rain sum: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.RainSum}" 
@@ -160,7 +161,7 @@
                     <StackPanel Orientation="Vertical" Margin="25, 0, 0, 0">
                         <!-- Precipitation -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/precipitation.png"/>
+                            <Image Classes="Extended" Source="../Resources/precipitation.png"/>
                             <TextBlock Text="Precipitation: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Precipitation}" 
@@ -172,7 +173,7 @@
                         </StackPanel>
                         <!-- Showers -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/showers.png"/>
+                            <Image Classes="Extended" Source="../Resources/showers.png"/>
                             <TextBlock Text="Showers: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Showers}" 
@@ -184,7 +185,7 @@
                         </StackPanel>
                         <!-- Snowfall -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/snowfall.png"/>
+                            <Image Classes="Extended" Source="../Resources/snowfall.png"/>
                             <TextBlock Text="Snowfall: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Snowfall}" 
@@ -196,7 +197,7 @@
                         </StackPanel>
                         <!-- Sunrise -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/sunrise.png"/>
+                            <Image Classes="Extended" Source="../Resources/sunrise.png"/>
                             <TextBlock Text="Sunrise: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Sunrise}" 
@@ -208,7 +209,7 @@
                         </StackPanel>
                         <!-- Sunset -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/sunrise.png"/>
+                            <Image Classes="Extended" Source="../Resources/sunrise.png"/>
                             <TextBlock Text="Sunset: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.Sunset}" 
@@ -220,7 +221,7 @@
                         </StackPanel>
                         <!-- Wind direction -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Classes="Extended" Source="../Resuorces/wind_direction.png"/>
+                            <Image Classes="Extended" Source="../Resources/wind_direction.png"/>
                             <TextBlock Text="Wind direction: " Classes="Extended"/>
                             <TextBlock 
                                 Text="{Binding SelectedExtendedWeatherReport.WindDirection}" 
@@ -307,7 +308,7 @@
                     Background="#666666" 
                     Command="{Binding ShowWeatherFlyout}" 
                     CornerRadius="10">
-                    <Image Source="../Resuorces/infoicon.png" Width="20" Height="20"/>
+                    <Image Source="../Resources/infoicon.png" Width="20" Height="20"/>
                 </Button>
             </StackPanel>
             <DataGrid 
@@ -333,7 +334,8 @@
                         IsReadOnly="True" 
                         FontFamily="Ubuntu" 
                         FontWeight="Light"
-                        CanUserSort="False"/>
+                        CanUserSort="False">
+                    </DataGridTextColumn>
                     <DataGridTextColumn 
                         Header="Temperature C" 
                         Binding="{Binding DegreesCelsius}" 
