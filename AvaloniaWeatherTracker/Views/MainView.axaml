@@ -26,7 +26,7 @@
             Opacity="{Binding ShadowRectangleOpacity}">
             <Rectangle.Transitions>
                 <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.1"></DoubleTransition>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.05"></DoubleTransition>
                 </Transitions>
             </Rectangle.Transitions>
         </Rectangle>
@@ -39,7 +39,7 @@
             CornerRadius="10">
             <FlyoutPresenter.Transitions>
                 <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.1"></DoubleTransition>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.05"></DoubleTransition>
                 </Transitions>
             </FlyoutPresenter.Transitions>
             <StackPanel Orientation="Vertical">
