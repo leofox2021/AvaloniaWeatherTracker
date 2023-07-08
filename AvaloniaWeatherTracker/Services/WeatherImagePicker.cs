@@ -5,7 +5,8 @@ namespace AvaloniaWeatherTracker.Services;
 
 public static class WeatherImagePicker
 {
-    public static string PickImageSource(WeatherReport weatherReport) => weatherReport.DegreesCelsius switch
+    public static string PickImageSource(ExtendedWeatherReport extendedWeatherReport) => 
+        extendedWeatherReport.DegreesCelsius switch
     {
         > 25 => Directory.GetCurrentDirectory() + "/Resources/sunny.png",
         < 25 and > 10 => Directory.GetCurrentDirectory() + "/Resources/cloudy.png",

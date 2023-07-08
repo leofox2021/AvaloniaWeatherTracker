@@ -26,12 +26,10 @@
             Opacity="{Binding ShadowRectangleOpacity}">
             <Rectangle.Transitions>
                 <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.2"></DoubleTransition>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.1"></DoubleTransition>
                 </Transitions>
             </Rectangle.Transitions>
         </Rectangle>
-        <!-- Insert this into Margin value in order to preview it for dev: "250, 0, 0, 0" -->
-        <!-- Insert this into Margin value in order for it to function properly: "{Binding FlyoutMargin}" -->
         <FlyoutPresenter
             ZIndex="3"
             IsEnabled="{Binding IsFlyoutEnabled}"
@@ -317,7 +315,7 @@
             <DataGrid 
                 SelectedIndex="{Binding SelectedIndex}" 
                 AutoGenerateColumns="False" 
-                ItemsSource="{Binding WeatherReports}" 
+                ItemsSource="{Binding ExtendedWeatherReports}" 
                 FontFamily="Ubuntu"
                 HorizontalScrollBarVisibility="Visible"
                 VerticalScrollBarVisibility="Visible"

@@ -1,11 +1,11 @@
 ﻿using System;
 using Avalonia.Controls;
 
-namespace WeatherForecastRestAPI.Model;
+namespace AvaloniaWeatherTracker.Models;
 
 public class ExtendedWeatherReport
 {
-    public Image? Icon { get; set; }
+    public string? Icon { get; set; }
     public Guid Id { get; set; }
     public string? City { get; set; }
     public int DegreesCelsius { get; set; }
