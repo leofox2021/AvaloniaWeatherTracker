@@ -2,6 +2,8 @@
 A cross-platform weather tracker app written in C# / Avalonia UI.
 ---
 Uses my self-written REST API to grab weather data: https://github.com/leofox2021/WeatherForecastRestAPI.
+Check its Readme.md in order to run it alongside the app. 
+Without REST API running you WON'T be able to retreive weather data!
 
 Uses CommunityTookit.Mvvm instead of deafult ReactiveUI for easier MVVM implementation.
 
