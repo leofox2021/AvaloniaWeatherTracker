@@ -6,8 +6,9 @@ Uses my self-written REST API to grab weather data: https://github.com/leofox202
 Check its Readme.md in order to run it alongside the app. 
 
 Without REST API running you WON'T be able to retreive weather data!
+---
 
-Uses CommunityTookit.Mvvm instead of deafult ReactiveUI for easier MVVM implementation.
+The app uses CommunityTookit.Mvvm instead of deafult ReactiveUI for easier MVVM implementation.
 
 ---
 Right now only the Desktop version functions properly, but I'm working on improving it for other platforms as well.
