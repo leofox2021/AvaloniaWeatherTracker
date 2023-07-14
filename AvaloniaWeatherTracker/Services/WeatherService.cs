@@ -68,7 +68,7 @@ public static class WeatherService
             {
                 records.Add(new WeekdayWeatherRecord()
                 {
-                    Temperature = degrees[i],
+                    Temperature = degrees[i].ToString() + "°",
                     Day = $"{(Month)DateTime.Now.Month}. {DateTime.Now.Day + i}",
                     Icon = WeatherImagePicker.PickImageSource(degrees[i])
                 });

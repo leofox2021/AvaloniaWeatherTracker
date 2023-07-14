@@ -2,7 +2,7 @@
 
 public class WeekdayWeatherRecord
 {
-    public int Temperature { get; set; }
+    public string Temperature { get; set; }
     public string? Day { get; set; }
     public string? Icon { get; set; }
 }
