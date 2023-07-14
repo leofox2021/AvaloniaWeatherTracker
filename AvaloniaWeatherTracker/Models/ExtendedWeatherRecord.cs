@@ -1,11 +1,12 @@
 ﻿using System;
-using Avalonia.Controls;
+using System.Collections.Generic;
 
 namespace AvaloniaWeatherTracker.Models;
 
 public class ExtendedWeatherReport
 {
     public string? Icon { get; set; }
+    public List<WeekdayWeatherRecord>? Weekly { get; set; } 
     public Guid Id { get; set; }
     public string? City { get; set; }
     public int DegreesCelsius { get; set; }

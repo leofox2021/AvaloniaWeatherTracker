@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Windows.Input;
+using Avalonia.Controls;
 using AvaloniaWeatherTracker.Commands;
 using AvaloniaWeatherTracker.Models;
 using AvaloniaWeatherTracker.Services;
@@ -12,6 +12,7 @@ namespace AvaloniaWeatherTracker.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SelectedIndex))]
     [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]    
     private ObservableCollection<ExtendedWeatherReport> _extendedWeatherReports;
 
@@ -22,7 +23,8 @@ public partial class MainViewModel : ObservableObject
     private string _textBotText;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]    
+    [NotifyPropertyChangedFor(nameof(SelectedExtendedWeatherReport))]
+    [NotifyPropertyChangedFor(nameof(ReportSelected))]    
     private int _selectedIndex;
 
     [ObservableProperty]
@@ -35,8 +37,8 @@ public partial class MainViewModel : ObservableObject
     private bool _isShadowRectangleEnabled;
 
     [ObservableProperty]
-    private bool _isFlyoutEnabled; 
-    
+    private bool _isFlyoutEnabled;
+
     private const double FlyoutClosedOpacity = 0;
     private const double FlyoutOpenOpacity = 0.6;
     
@@ -49,7 +51,7 @@ public partial class MainViewModel : ObservableObject
         RemoveCity = new RelayCommand(DoRemoveCity, CanDoRemoveCity);
         ShowWeatherFlyout = new RelayCommand(DoShowWeatherFlyout, CanShowWeatherFlyout);
         HideWeatherFlyout = new RelayCommand(DoHideWeatherFlyout, CanHideWeatherFlyout);
-        
+
         _status = "Last fetched at: never fetched!";
         _textBotText = "";
         _shadowRectangleOpacity = FlyoutClosedOpacity;
@@ -64,16 +66,17 @@ public partial class MainViewModel : ObservableObject
         {
             try
             {
-                Debug.WriteLine($"Selected index is {SelectedIndex}");
                 return ExtendedWeatherReports[SelectedIndex];
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return null;
             }
         }
-    } 
-    
+    }
+
+    public bool ReportSelected => SelectedExtendedWeatherReport != null;
+
     public ICommand LoadReports { get; set; }
     public ICommand AddCity { get; set; }
     public ICommand RemoveCity { get; set; }

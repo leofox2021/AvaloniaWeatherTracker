@@ -15,5 +15,16 @@
         <StyleInclude Source="Styles/ExtendedPropertyStyle.axaml"/>
         <StyleInclude Source="Styles/ExtendedSeparatorStyle.axaml"/>
         <StyleInclude Source="Styles/ExtendedImageStyle.axaml"/>
+        <StyleInclude Source="Styles/WeeklyImageStyle.axaml"/>
+        <StyleInclude Source="Styles/WeeklyDateStyle.axaml"/>
+        <StyleInclude Source="Styles/WeeklyDegreeStyle.axaml"/>
     </Application.Styles>
+             
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
