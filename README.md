@@ -18,4 +18,5 @@ Right now only the Desktop version functions properly, but I'm working on improv
 
 ![image](https://github.com/leofox2021/AvaloniaWeatherTracker/assets/77863733/e49855d4-fd4c-4071-b07b-2b5a3ee2141d)
 
-![image](https://github.com/leofox2021/AvaloniaWeatherTracker/assets/77863733/a6465ee8-6ca1-4465-97ad-b35de6ed8de0)
+![image](https://github.com/leofox2021/AvaloniaWeatherTracker/assets/77863733/bd7cdba0-ec3c-4ba7-8bb0-efdc3ae5759d)
+
